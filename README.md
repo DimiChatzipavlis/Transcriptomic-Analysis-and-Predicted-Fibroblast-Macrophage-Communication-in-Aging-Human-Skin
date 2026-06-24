@@ -27,3 +27,35 @@ validation.
 
 Open the notebook in Google Colab (or any Jupyter environment) and run it top to bottom —
 dependencies are installed in the first cell.
+
+## Next steps toward a publishable study
+
+This notebook is a sound *exploratory, single-dataset* re-analysis; the results are
+hypothesis-generating, not confirmatory. Closing the gaps below — roughly in priority order —
+would bring the work to paper level.
+
+1. **Independent replication and statistical power (essential).** The contrast rests on
+   **2 young vs 3 old donors** — too few for stable pseudobulk dispersion estimates, so the
+   200-DEG signature should be treated as provisional. Reproduce it in ≥1 independent skin-aging
+   scRNA-seq cohort and report cross-dataset concordance (rank correlation, overlap significance)
+   or a formal meta-analysis.
+2. **Remove the sex confound.** All donors are male, and skin aging is sex-dimorphic. Add female
+   donors and test for shared versus sex-specific aging programmes.
+3. **Resolve fibroblast subpopulations.** The pipeline collapses all fibroblasts into a single
+   pseudobulk, yet the source dataset's central finding is an age-related *loss of fibroblast
+   priming* (subpopulation structure). Subcluster fibroblasts, repeat the DE / TF / communication
+   analyses per subtype, and benchmark against the original study.
+4. **Tighten the statistical inference.** Apply multiple-testing correction to transcription-factor
+   activity (currently called at raw *p* < 0.05 across 429 regulons); replace the set-difference
+   "emergent/lost" communication call with a differential cell–cell-communication test that models
+   per-donor variability (permutation or mixed-effects); add log-fold-change shrinkage for DEG
+   ranking and a sensitivity analysis over clustering resolution, HVG count, and thresholds.
+5. **Contextualize the biology.** Add pathway / GSEA enrichment and overlap with curated
+   senescence / SASP and dermal-aging signatures, and cross-check the inferred regulators against an
+   orthogonal regulon resource (high FOXA1/GATA3 activity in fibroblasts is unexpected and warrants
+   scrutiny).
+6. **Orthogonal and spatial validation.** Co-expression is not interaction — corroborate the top
+   fibroblast → macrophage axes with spatial transcriptomics or protein-level data, and validate the
+   cell-type labels against a reference-based annotator.
+7. **Reproducibility and release.** Pin an exact software environment, fix stochastic steps for
+   determinism, and archive the code and processed objects under a citable DOI.
