@@ -58,4 +58,4 @@ would bring the work to paper level.
    fibroblast → macrophage axes with spatial transcriptomics or protein-level data, and validate the
    cell-type labels against a reference-based annotator.
 7. **Reproducibility and release.** Pin an exact software environment, fix stochastic steps for
-   determinism, and archive the code and processed objects under a citable DOI.
+   determinism, and archive the code.
